@@ -21,11 +21,11 @@
 title: Hidden Information Games Competition
 email: organizers ... higcompetition.info
 description: >- # this means to ignore newlines until "baseurl:"
-  Hidden Information Games Competition tests AI bots on large two-player
-  zero-sum games with imperfect information. The players do not have perfect
-  knowledge about everything that goes on in the game: they only receive
-  observations about the true state. The goal is to play the games as well as
-  possible against any opponent.
+  Hidden Information Games Competition (HIGC) tests AI bots on large two-player
+  zero-sum games with imperfect information, such as Poker or DarkChess. The
+  players do not have perfect knowledge about everything that goes on in the
+  game: they receive only partial observations about the world's real state. The
+  goal of the AI is to play the games as well as possible against any opponent.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://higcompetition.info" # the base hostname & protocol for your site, e.g. http://example.com
 

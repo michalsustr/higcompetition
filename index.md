@@ -6,3 +6,9 @@ layout: home
 ---
 
 {{ site.description | escape }}
+
+<div style="text-align:center; margin: 10px auto;">
+<p>Organized by:</p>
+<img src="assets/logo_dm.jpg" alt="Logo DeepMind"/> &nbsp; 
+<img src="assets/logo_cvut_en.jpg" alt="Logo Czech Technical University" />
+</div>

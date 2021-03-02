@@ -18,16 +18,16 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Hidden Information Games Competition
+email: organizers ... higcompetition.info
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Hidden Information Games Competition tests AI bots on large two-player
+  zero-sum games with imperfect information. The players do not have perfect
+  knowledge about everything that goes on in the game: they only receive
+  observations about the true state. The goal is to play the games as well as
+  possible against any opponent.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://higcompetition.info" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 theme: minima

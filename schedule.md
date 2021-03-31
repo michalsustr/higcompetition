@@ -9,7 +9,8 @@ Approximate schedule of the competition, as announced on the [AAAI RLG workshop 
 | Milestone                                | Date
 | ---------------------------------------- | ------------------------
 | Feedback Collection, Committee formation | February-March, 2021
-| Games decision                           | March 30th, 2021
+| Games decision                           | ~~March 30th, 2021~~ April 5th,
+2021
 | Game implementations, exact rules        | April 31st, 2021
 | Bot submission deadline                  | November 30th, 2021
 | Technical back-n-forth with bot authors  | December 31st, 2021

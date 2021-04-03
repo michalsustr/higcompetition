@@ -42,3 +42,11 @@ goals of this competition we'd like to achieve a similar status for two-player
 zero-sum imperfect-information games: the same algorithm should be able to play
 any large game.
 
+### Committee
+
+All decisions are agreed upon within organizing committee. The committee members are:
+
+- Martin Schmid (DeepMind)
+- Noam Brown (Facebook)
+- Viliam Lisý (CTU)
+- Michal Šustr (CTU)

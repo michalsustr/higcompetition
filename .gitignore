@@ -63,3 +63,4 @@ build-iPhoneSimulator/
 
 upload.sh
 .idea/
+Makefile

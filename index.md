@@ -10,5 +10,6 @@ layout: home
 <div style="text-align:center; margin: 10px auto;">
 <p>Organized by:</p>
 <a href="https://deepmind.com/"><img src="assets/logo_dm.jpg" alt="Logo DeepMind"/></a> &nbsp; 
+<a href="https://rci.cvut.cz/"><img src="assets/logo_rci.png" alt="Logo RCI Czech Technical University" /></a> &nbsp;
 <a href="https://www.cvut.cz/"><img src="assets/logo_cvut_en.jpg" alt="Logo Czech Technical University" /></a>
 </div>

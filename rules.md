@@ -31,9 +31,9 @@ A high-level overview:
 - Going over time limit / submitting illegal actions: If the bot submits 3 illegal actions, or 3 actions during pondering-only phase, or goes over the time limit within a match, it is shut down and random actions are picked instead. This fact is noted in the match log.
 - If the bot goes over the time limit in more than 1% of the matches in any of the games it is **disqualified**.
 - One team, one program. The same program can only register once, no hyper-parameter sweeps are allowed.
-- The same program should run for each game, but can use different supplementary data (precomputed lookup tables, neural networks etc.).
+- The same program should run for each of the three games, but can use different supplementary data (precomputed lookup tables, neural networks etc.).
 - The supplementary data is mounted from external file system storage for read-write access.
-- The bot is completely restarted in each match by the evaluation system.
+- The bot is completely restarted in each game by the evaluation system.
 - The matches against a specific opponent run sequentially.
 - No activity other than game computation is allowed.
 - There is no connection to the internet, and the only file storage is through the space-limited supplementary data.
@@ -81,16 +81,19 @@ player 2) in both public games. The average score must be greater than zero.
     ```
 
 - Participants submit a [Singularity image](https://sylabs.io/guides/3.7/user-guide/). We provide a base image with dynamically mounted [OpenSpiel](https://github.com/deepmind/open_spiel) library that participants must use as base image, but feel free to add any packages that your algorithm requires on top of the base image. Maximum size of the entire image is 5GB and it should not contain game-specific data -- you can use supplementary data for that.  The [OpenSpiel](https://github.com/deepmind/open_spiel) dynamic library is mounted from an external file, in order to easily swap the implementation with the secret game, without changing the base image.
-- Communication with the referee is done via STDIO (standard input / output).
+
+- Communication with the referee is done via STDIO (standard input / output). See also [documentation](/docs/) to download example code.
     - First, the bot receives a string with the name of the game that it should play.
     - Then on the next line it receives the index of the player it should play as (either 0 or 1).
     - The bot then has 5 seconds to prepare for the match.
     - Then the bot should enter a while loop, waiting for a message from the referee. The message consists of
-      - The current observation, a one-line tensor compatible with the Observer API, encoded in base64.
+      - The current public and private observation, a one-line compressed tensor compatible with the Observer API, encoded in base64.
       - If it is bot’s turn, a list of legal actions (space-separated integers, i.e. list of `open_spiel::Action`).
     - Once the referee prints the observation and it is the bot’s turn, the bot has 5 seconds to make a move by printing the action number. If it is not its turn, it can use the observation to ponder.
-    - The distinction between acting / pondering phase can be determined whether legal actions are supplied or not (see code below).
-    - At the end the bot receives a string “end of game” followed by the final score the bot received. The bot should quit the while loop and finish its process. If not, the process is shut down after a timeout. This does not count towards the 1% no-timeouts-policy, but we prefer if your program behaves “nicely”.
+    - The distinction between acting / pondering phase can be determined whether legal actions are supplied or not.
+    - At the end of the match the bot receives a string “match over” followed by the final score the bot received. The bot has 1 second to prepare for the next match. 
+    - At the end of the tournament the bot receives a string “tournament over”.
+      The bot should quit the while loop and finish its process. If not, the process is shut down after a timeout of 60 seconds. This does not count towards the 1% no-timeouts-policy, but we prefer if your program behaves “nicely”.
 
 ## Evaluation
 The bots will receive an ordered ranking for each game, based on the instant run-off voting (IRV). The smaller the rank, the better. The final evaluation is then lexicographic ordering of sorted ranks across the three games (i.e. comparison of the worst result across the games).
@@ -163,41 +166,6 @@ C: 3 3
 
 Finally, A and B share first place, and C has third place.
 
-## Example code for random agent
-
-```python
-import pyspiel
-import base64
-import numpy as np
-from open_spiel.python.observation import make_observation
-
-game_name = input()
-play_as = int(input())
-
-# Now there is 5 secs warm-up time that could be used for loading relevant supplementary data.
-
-game = pyspiel.load_game(game_name)
-# Will be set later based on the referee message.
-observation = make_observation(game)
-
-while (True):
-   message = input()
-   if message.startswith("end of game"): break
-
-   encoded_obs, *legal_actions = message.split(" ")
-   decoded_obs = np.frombuffer(base64.b64decode(encoded_obs),
-   np.float32)
-   np.copyto(observation.tensor, decoded_obs)
-   should_act = len(legal_actions) > 0
-
-   if should_act:  # Time limit 5 secs.
-       print(np.random.choice(legal_actions))
-   else:
-       # Pondering phase. This bot does not ponder.
-       pass
-
-score = float(message.split(" ")[-1])
-```
 
 ## Future updates
 

@@ -4,16 +4,10 @@ title:  "Schedule"
 date:   2021-03-02 11:27:16 +0100
 ---
 
-Approximate schedule of the competition, as announced on the [AAAI RLG workshop 2021](http://aaai-rlg.mlanctot.info/).
-
 | Milestone                                   | Date
 | ------------------------------------------- | ------------------------------------
-| ✔️ Feedback Collection, Committee formation | February-March, 2021
-| ✔️ Games decision                           | ~~March 30th, 2021~~ April 5th, 2021
-| ✔️ Exact rules                              | ~~April 31st, 2021~~ May 10th, 2021
-| ✔️ Games implementation                     | ~~June 6th, 2021~~ June 28th, 2021 
-| Bot submission deadline                     | November 30th, 2021
-| Technical back-n-forth with bot authors     | December 31st, 2021
-| Evaluation                                  | January-February 2022
-| Results                                     | RLG workshop 2022
-
+| <a style="text-decoration: underline" href="https://docs.google.com/forms/d/e/1FAIpQLSd141xBiw-CPueGMscJr6-zsDCusKJ3W2iZx8zNTfsp-mWYAg/viewform?fbzx=7166880982219528399">Registration</a> deadline                       | November 15th, 2021    
+| Bot submission deadline                     | November 19th, 2021    
+| Secret game is provided                     | November 22nd, 2021, 16:00 UTC    
+| Submission deadline for the secret game (supplementary data only)    | November 29th, 2021, 16:00 UTC    
+| Results                                     | RLG workshop 2022 (to be announced, sometime in February)

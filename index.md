@@ -15,7 +15,11 @@ layout: home
 </div>
 
 <div style="border:1px solid #ddd; padding:20px; width: 80%;margin: 40px auto;text-align:center; font-size:1.2em">
-Join the community at the <strong><a href="https://discord.gg/6Q3UurHxMh">Discord server</a></strong>
+Please give us 
+<strong><a href="https://docs.google.com/forms/d/e/1FAIpQLSdEOvI_yIbgjNz2DRGvOcfmk83EIQUQA5xaJCIh5mHUbgC2pg/viewform">feedback</a></strong>
+about the competition.
+<br />
+Join the community at the <strong><a href="https://discord.gg/6Q3UurHxMh">Discord server</a></strong>.
 </div>
 
 <h1>Latest news</h1>
